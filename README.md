@@ -80,16 +80,28 @@ Toàn bộ xử lý diễn ra trong trình duyệt; file Excel được đọc c
 
 ### 2.2 Quy đổi điểm (dùng chung cho M1 và M2)
 
-| Điểm hệ 10 | Điểm chữ | Hệ 4.0 |
-|:---:|:---:|:---:|
-| ≥ 9.0 | A | 4.0 |
-| ≥ 8.0 | B+ | 3.5 |
-| ≥ 7.0 | B | 3.0 |
-| ≥ 6.5 | C+ | 2.5 |
-| ≥ 5.5 | C | 2.0 |
-| ≥ 5.0 | D+ | 1.5 |
-| ≥ 4.0 | D | 1.0 |
-| < 4.0 | F | 0.0 |
+```mermaid
+flowchart LR
+    %% Phong cách màu sắc phân cấp học tập
+    classDef rankA fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20,font-weight:bold;
+    classDef rankB fill:#E3F2FD,stroke:#1565C0,stroke-width:1.5px,color:#0D47A1,font-weight:bold;
+    classDef rankC fill:#FFFDE7,stroke:#FBC02D,stroke-width:1.5px,color:#F57F17,font-weight:bold;
+    classDef rankD fill:#FFF3E0,stroke:#EF6C00,stroke-width:1.5px,color:#E65100,font-weight:bold;
+    classDef rankF fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C,font-weight:bold;
+
+    %% Các khối thang điểm
+    A["Điểm A<br/>≥ 9.0 · Hệ 4.0"]:::rankA
+    BP["Điểm B+<br/>≥ 8.0 · Hệ 3.5"]:::rankB
+    B["Điểm B<br/>≥ 7.0 · Hệ 3.0"]:::rankB
+    CP["Điểm C+<br/>≥ 6.5 · Hệ 2.5"]:::rankC
+    C["Điểm C<br/>≥ 5.5 · Hệ 2.0"]:::rankC
+    DP["Điểm D+<br/>≥ 5.0 · Hệ 1.5"]:::rankD
+    D["Điểm D<br/>≥ 4.0 · Hệ 1.0"]:::rankD
+    F["Điểm F<br/>&lt; 4.0 · Hệ 0.0"]:::rankF
+
+    %% Luồng liên kết ngang
+    A --> BP --> B --> CP --> C --> DP --> D --> F
+```
 
 ### 2.3 M1 – Tính GPA học kỳ
 
