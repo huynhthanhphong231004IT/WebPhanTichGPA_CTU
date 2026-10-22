@@ -278,4 +278,4 @@ Dự án chứng minh rằng ba nhu cầu phân tích GPA điển hình của si
 
 ---
 
-<sub>Tác giả: huynhthanhphong231004IT · Đại học Cần Thơ</sub>
+<sub>Tác giả: Huỳnh Thanh Phong · Đại học Cần Thơ · Website phục vụ học tập</sub> 
