@@ -1,6 +1,6 @@
 <div align="center">
 
-## Website phân tích GPA (Grade Point Average) áp dụng tại Đại học Cần Thơ (CTU)
+## Website phân tích GPA (Grade Point Average) áp dụng tại Đại học Cần Thơ
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-1E88E5?style=for-the-badge&logo=github&logoColor=white)](https://huynhthanhphong231004it.github.io/WebPhanTichGPA_CTU/)
 
 **Sinh viên thực hiện:** Huỳnh Thanh Phong  - Khoa học máy tính, Trường Công nghệ thông tin và Truyền thông, Đại học Cần Thơ
@@ -217,12 +217,39 @@ flowchart LR
 
 ## 3. Đóng góp
 
-| Khoảng trống thực tế | Hướng tiếp cận | Giá trị mang lại |
-|---|---|---|
-| GPA chỉ là một con số, khó kiểm chứng | Phơi bày toàn bộ bước trung gian | Tự kiểm chứng, hiểu tác động từng môn |
-| Mục tiêu tốt nghiệp thiếu định lượng | Giải bài toán nghịch + kiểm tra khả thi | Lập kế hoạch học tập dựa trên số liệu |
-| Xếp loại danh sách thủ công, dễ lệch | Quy tắc `min` + sắp xếp xác định | Kết quả nhất quán, tái lập được |
-| Dữ liệu điểm mang tính cá nhân | Xử lý hoàn toàn phía client | Riêng tư, triển khai không tốn hạ tầng |
+```mermaid
+graph LR
+    subgraph K["Khoảng trống thực tế"]
+        K1["GPA chỉ là con số,<br/>khó kiểm chứng"]
+        K2["Mục tiêu tốt nghiệp<br/>thiếu định lượng"]
+        K3["Xếp loại danh sách<br/>thủ công, dễ lệch"]
+        K4["Dữ liệu điểm<br/>mang tính cá nhân"]
+    end
+
+    subgraph H["Hướng tiếp cận"]
+        H1["Phơi bày toàn bộ<br/>bước trung gian"]
+        H2["Giải bài toán nghịch +<br/>kiểm tra khả thi"]
+        H3["Quy tắc min +<br/>sắp xếp xác định"]
+        H4["Xử lý hoàn toàn<br/>phía Client"]
+    end
+
+    subgraph G["Giá trị mang lại"]
+        G1["Tự kiểm chứng,<br/>hiểu tác động từng môn"]
+        G2["Lập kế hoạch học tập<br/>dựa trên số liệu"]
+        G3["Kết quả nhất quán,<br/>tái lập được"]
+        G4["Riêng tư, triển khai<br/>không tốn hạ tầng"]
+    end
+
+    K1 --> H1 --> G1
+    K2 --> H2 --> G2
+    K3 --> H3 --> G3
+    K4 --> H4 --> G4
+
+    %% Style màu sắc ma trận
+    style K fill:#FFEBEE,stroke:#C62828,color:#B71C1C
+    style H fill:#E3F2FD,stroke:#1565C0,color:#0D47A1
+    style G fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20
+```
 
 **Từ kết quả sang sự hiểu: minh bạch hóa quá trình tính GPA.** Người học thường tiếp nhận GPA như một kết quả đóng, nên khó nhận ra môn nào kéo điểm xuống hay vì sao một môn điểm F lại làm thay đổi mẫu số. M1 không chỉ xuất ra GPA mà trình bày chuỗi quy đổi điểm hệ 10, điểm chữ, hệ 4.0, tích với tín chỉ và tổng tín chỉ hiệu dụng, kèm công thức. Nhờ đó công cụ đóng vai trò *thiết bị kiểm chứng*: sinh viên đối chiếu được con số với cổng thông tin và hình dung được môn nào đáng ưu tiên cải thiện.
 
