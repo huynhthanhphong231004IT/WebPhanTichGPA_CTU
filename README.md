@@ -1,6 +1,16 @@
-# WebPhanTichGPA_CTU
+<div align="center">
 
-> Công cụ web chạy hoàn toàn trên trình duyệt, hỗ trợ sinh viên Đại học Cần Thơ **tính GPA học kỳ**, **ước lượng GPA cần đạt để tốt nghiệp** và **xếp loại – xếp hạng hàng loạt** từ file Excel.
+## Website phân tích GPA (Grade Point Average) áp dụng tại Đại học Cần Thơ (CTU)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-1E88E5?style=for-the-badge&logo=github&logoColor=white)](https://huynhthanhphong231004it.github.io/WebPhanTichGPA_CTU/)
+
+**Sinh viên thực hiện:** Huỳnh Thanh Phong  - Khoa học máy tính, Trường Công nghệ thông tin và Truyền thông, Đại học Cần Thơ
+
+[![Facebook](https://img.shields.io/badge/Facebook-Huỳnh%20Thanh%20Phong-E53935?style=for-the-badge&logo=facebook&logoColor=white&labelColor=333333)](https://www.facebook.com/huynh.thanh.phong.561667)
+[![TikTok](https://img.shields.io/badge/TikTok-@reorioll-E53935?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=333333)](https://www.tiktok.com/@reorioll)
+[![YouTube](https://img.shields.io/badge/YouTube-ReoRioll-E53935?style=for-the-badge&logo=youtube&logoColor=white&labelColor=333333)](https://www.youtube.com/@ReoRioll-2304CICTCTU)
+
+
+</div>
 
 ---
 
