@@ -3,7 +3,7 @@
 ## Website phân tích GPA (Grade Point Average) áp dụng tại Đại học Cần Thơ
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-1E88E5?style=for-the-badge&logo=github&logoColor=white)](https://huynhthanhphong231004it.github.io/WebPhanTichGPA_CTU/)
 
-**Sinh viên thực hiện:** Huỳnh Thanh Phong  - Khoa học máy tính, Trường Công nghệ thông tin và Truyền thông, Đại học Cần Thơ
+**Sinh viên thực hiện:** Huỳnh Thanh Phong  - Khoa học máy tính, Trường CNTT&TT, Đại học Cần Thơ
 
 [![Facebook](https://img.shields.io/badge/Facebook-Huỳnh%20Thanh%20Phong-E53935?style=for-the-badge&logo=facebook&logoColor=white&labelColor=333333)](https://www.facebook.com/huynh.thanh.phong.561667)
 [![TikTok](https://img.shields.io/badge/TikTok-@reorioll-E53935?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=333333)](https://www.tiktok.com/@reorioll)
