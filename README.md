@@ -18,6 +18,13 @@
 
 Kết quả học tập thường chỉ được thông báo dưới dạng một con số cuối cùng, trong khi sinh viên cần hiểu *con số đó hình thành thế nào*, *cần đạt bao nhiêu ở các kỳ còn lại*, và cán bộ lớp cần *xếp loại cả danh sách* một cách nhất quán. Dự án giải quyết ba nhu cầu này bằng ba module độc lập trong một giao diện duy nhất.
 
+<p align="center">
+  <img src="Images/image_02.jpg" width="800">
+  <img src="Images/image_01.jpg" width="800">
+  <br>
+  <i>Hình 01. Giao diện mô phỏng quá trình phân loại đánh giá và xếp hạng danh sách sinh viên</i>
+</p>
+
 | Module | Câu hỏi giải quyết | Đầu vào | Đầu ra |
 |---|---|---|---|
 | **M1 – Tính GPA** | GPA học kỳ của tôi là bao nhiêu và được tính ra sao? | Điểm hệ 10, số tín chỉ từng môn | GPA hệ 4.0 + bảng chi tiết từng môn + công thức |
