@@ -39,15 +39,41 @@ Kết quả học tập thường chỉ được thông báo dưới dạng mộ
 
 ```mermaid
 flowchart LR
-    U([Sinh viên / Cán bộ lớp]) --> S{Chọn chức năng}
-    S -->|gpa| M1[M1: Tính GPA]
-    S -->|estimate| M2[M2: Ước lượng tốt nghiệp]
-    S -->|rank| M3[M3: Xếp loại học kỳ]
-    X[(File Excel .xlsx/.xls)] -->|FileReader + SheetJS| M3
-    M1 --> R[Kết quả + chi tiết tính toán]
+    %% Định nghĩa phong cách màu sắc chuẩn Academic (Nhiều màu, chuyên nghiệp)
+    classDef userNode fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1,font-weight:bold;
+    classDef decisionNode fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px,color:#E65100,font-weight:bold;
+    classDef moduleNode fill:#E8F5E9,stroke:#2E7D32,stroke-width:1.5px,color:#1B5E20,font-weight:bold;
+    classDef dataNode fill:#FFFDE7,stroke:#FBC02D,stroke-width:1.5px,color:#F57F17,font-weight:bold;
+    classDef resultNode fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1.5px,color:#4A148C,font-weight:bold;
+    classDef mathNode fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C,font-weight:bold;
+
+    %% Các nút trong sơ đồ
+    U([Sinh viên / Cán bộ lớp]):::userNode
+    S{Chọn chức năng}:::decisionNode
+    
+    M1["M1: Tính GPA"]:::moduleNode
+    M2["M2: Ước lượng<br/>tốt nghiệp"]:::moduleNode
+    M3["M3: Xếp loại<br/>học kỳ"]:::moduleNode
+    
+    X[(File Excel<br/>.xlsx / .xls)]:::dataNode
+    
+    R["Kết quả & Chi tiết<br/>tính toán"]:::resultNode
+    MJ["MathJax<br/>Hiển thị công thức"]:::mathNode
+
+    %% Luồng liên kết
+    U --> S
+    
+    S -->|gpa| M1
+    S -->|estimate| M2
+    S -->|rank| M3
+    
+    X -->|FileReader + SheetJS| M3
+    
+    M1 --> R
     M2 --> R
     M3 --> R
-    R --> MJ[MathJax: hiển thị công thức]
+    
+    R --> MJ
 ```
 
 Toàn bộ xử lý diễn ra trong trình duyệt; file Excel được đọc cục bộ bằng `FileReader`, không gửi đi đâu.
