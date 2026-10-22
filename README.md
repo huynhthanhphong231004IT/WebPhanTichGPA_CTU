@@ -80,29 +80,17 @@ Toàn bộ xử lý diễn ra trong trình duyệt; file Excel được đọc c
 
 ### 2.2 Quy đổi điểm (dùng chung cho M1 và M2)
 
-```mermaid
-flowchart LR
-    %% Phong cách màu sắc phân cấp học tập
-    classDef rankA fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20,font-weight:bold;
-    classDef rankB fill:#E3F2FD,stroke:#1565C0,stroke-width:1.5px,color:#0D47A1,font-weight:bold;
-    classDef rankC fill:#FFFDE7,stroke:#FBC02D,stroke-width:1.5px,color:#F57F17,font-weight:bold;
-    classDef rankD fill:#FFF3E0,stroke:#EF6C00,stroke-width:1.5px,color:#E65100,font-weight:bold;
-    classDef rankF fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C,font-weight:bold;
+Bảng quy đổi điểm và công thức tính GPA được áp dụng chuẩn xác theo Quy định công tác học vụ dành cho sinh viên trình độ đại học hệ chính quy (ban hành kèm theo Quyết định số 3266/QĐ-ĐHCT ngày 15/08/2024 của Hiệu trưởng Trường Đại học Cần Thơ, áp dụng từ Học kỳ 2, năm học 2024 – 2025), dựa trên Quy chế đào tạo trình độ đại học (Thông tư số 08/2021/TT-BGDĐT của Bộ Giáo dục và Đào tạo).Việc quy đổi từ điểm hệ 10 sang điểm chữ (A, B+, B, C+, C, D+, D, F) và chuyển tiếp sang thang điểm 4.0 giúp phản ánh chính xác phân mức học lực, đảm bảo tính minh bạch trong việc xếp loại học kỳ, đánh giá tiến độ tích lũy và xét tốt nghiệp theo đúng hệ thống đào tạo theo tín chỉ.
 
-    %% Các khối thang điểm
-    A["Điểm A<br/>≥ 9.0 · Hệ 4.0"]:::rankA
-    BP["Điểm B+<br/>≥ 8.0 · Hệ 3.5"]:::rankB
-    B["Điểm B<br/>≥ 7.0 · Hệ 3.0"]:::rankB
-    CP["Điểm C+<br/>≥ 6.5 · Hệ 2.5"]:::rankC
-    C["Điểm C<br/>≥ 5.5 · Hệ 2.0"]:::rankC
-    DP["Điểm D+<br/>≥ 5.0 · Hệ 1.5"]:::rankD
-    D["Điểm D<br/>≥ 4.0 · Hệ 1.0"]:::rankD
-    F["Điểm F<br/>&lt; 4.0 · Hệ 0.0"]:::rankF
-
-    %% Luồng liên kết ngang
-    A --> BP --> B --> CP --> C --> DP --> D --> F
-```
-
+> [![Thang A](https://img.shields.io/badge/%E2%89%A5_9.0-Điểm_A_|_Hệ_4.0-800000?style=for-the-badge&labelColor=333333)](#)
+> [![Thang B+](https://img.shields.io/badge/%E2%89%A5_8.0-Điểm_B+_|_Hệ_3.5-A30000?style=for-the-badge&labelColor=333333)](#)
+> [![Thang B](https://img.shields.io/badge/%E2%89%A5_7.0-Điểm_B_|_Hệ_3.0-C62828?style=for-the-badge&labelColor=333333)](#)
+> [![Thang C+](https://img.shields.io/badge/%E2%89%A5_6.5-Điểm_C+_|_Hệ_2.5-D32F2F?style=for-the-badge&labelColor=333333)](#)
+> [![Thang C](https://img.shields.io/badge/%E2%89%A5_5.5-Điểm_C_|_Hệ_2.0-E53935?style=for-the-badge&labelColor=333333)](#)
+> [![Thang D+](https://img.shields.io/badge/%E2%89%A5_5.0-Điểm_D+_|_Hệ_1.5-EF5350?style=for-the-badge&labelColor=333333)](#)
+> [![Thang D](https://img.shields.io/badge/%E2%89%A5_4.0-Điểm_D_|_Hệ_1.0-E57373?style=for-the-badge&labelColor=333333)](#)
+> [![Thang F](https://img.shields.io/badge/<_4.0-Điểm_F_|_Hệ_0.0-EF9A9A?style=for-the-badge&labelColor=333333)](#)
+> 
 ### 2.3 M1 – Tính GPA học kỳ
 
 $$
@@ -121,15 +109,45 @@ với $G_{mt}$ là GPA mục tiêu, $G_{ht}$ và $C_{ht}$ là GPA và tín chỉ
 
 ```mermaid
 flowchart TD
-    A["Nhập GPA hiện tại, TC hiện tại,<br/>Tổng TC ngành, GPA mục tiêu"] --> B["Tính TC còn lại"]
-    B --> C["Tính GPA cần đạt"]
-    C --> D{"GPA cần đạt > 4.0?"}
-    D -->|Có| E["Cảnh báo: mục tiêu không khả thi"]
-    D -->|Không| F["Quy đổi số môn = TC còn lại / 3"]
-    F --> G["Backtracking trên tập A, B+, B, C+, C"]
-    G --> H{"Có tổ hợp có TB ≥ GPA cần đạt?"}
-    H -->|Có| I["Chọn tổ hợp có TB gần ngưỡng nhất"]
-    H -->|Không| J["Báo không thể phân phối phù hợp"]
+    %% Định nghĩa phong cách màu sắc chuẩn Academic (Nhiều màu, chuyên nghiệp)
+    classDef inputNode fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1,font-weight:bold;
+    classDef processNode fill:#E8F5E9,stroke:#2E7D32,stroke-width:1.5px,color:#1B5E20,font-weight:bold;
+    classDef decisionNode fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px,color:#E65100,font-weight:bold;
+    classDef warningNode fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C,font-weight:bold;
+    classDef algoNode fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1.5px,color:#4A148C,font-weight:bold;
+    classDef successNode fill:#E0F2F1,stroke:#00695C,stroke-width:2px,color:#004D40,font-weight:bold;
+
+    %% Các nút trong sơ đồ
+    A["Nhập dữ liệu:<br/>GPA hiện tại · TC hiện tại<br/>Tổng TC ngành · GPA mục tiêu"]:::inputNode
+    
+    B["Tính số tín chỉ (TC) còn lại:<br/>TC còn lại = Tổng TC - TC hiện tại"]:::processNode
+    C["Tính GPA cần đạt cho các môn còn lại"]:::processNode
+    
+    D{"GPA cần đạt > 4.0?"}:::decisionNode
+    
+    E[" Cảnh báo:<br/>Mục tiêu không khả thi!"]:::warningNode
+    
+    F["Quy đổi ước tính số môn:<br/>Số môn = TC còn lại / 3"]:::processNode
+    G["Chạy thuật toán Backtracking<br/>trên tập điểm [A, B+, B, C+, C]"]:::algoNode
+    
+    H{"Có tổ hợp có TB ≥ GPA cần đạt?"}:::decisionNode
+    
+    I[" Chọn tổ hợp tối ưu<br/>có trung bình gần ngưỡng nhất"]:::successNode
+    J[" Thông báo:<br/>Không thể phân phối phù hợp"]:::warningNode
+
+    %% Luồng liên kết thuật toán
+    A --> B
+    B --> C
+    C --> D
+    
+    D -->|Có| E
+    D -->|Không| F
+    
+    F --> G
+    G --> H
+    
+    H -->|Có| I
+    H -->|Không| J
 ```
 
 | Tham số của bước gợi ý | Giá trị |
