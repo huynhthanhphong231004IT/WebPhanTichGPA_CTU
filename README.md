@@ -168,14 +168,12 @@ flowchart TD
 
 **Ngưỡng xếp loại:**
 
-| Mức | GPA | Điểm rèn luyện |
-|---|:---:|:---:|
-| Xuất sắc | ≥ 3.6 | ≥ 90 |
-| Giỏi | ≥ 3.2 | ≥ 80 |
-| Khá | ≥ 2.5 | ≥ 70 |
-| Trung bình | ≥ 2.0 | ≥ 60 |
-| Yếu | ≥ 1.0 | ≥ 50 |
-| Không xét | < 1.0 | < 50 |
+> [![Xuất sắc](https://img.shields.io/badge/Mức_Xuất_Sắc-GPA_%E2%89%A5_3.6_%20%7C%20ĐRL_%E2%89%A5_90-800000?style=for-the-badge&labelColor=333333)](#)
+> [![Giỏi](https://img.shields.io/badge/Mức_Giỏi-GPA_%E2%89%A5_3.2_%20%7C%20ĐRL_%E2%89%A5_80-A30000?style=for-the-badge&labelColor=333333)](#)
+> [![Khá](https://img.shields.io/badge/Mức_Khá-GPA_%E2%89%A5_2.5_%20%7C%20ĐRL_%E2%89%A5_70-C62828?style=for-the-badge&labelColor=333333)](#)
+> [![Trung bình](https://img.shields.io/badge/Mức_Trung_Bình-GPA_%E2%89%A5_2.0_%20%7C%20ĐRL_%E2%89%A5_60-E53935?style=for-the-badge&labelColor=333333)](#)
+> [![Yếu](https://img.shields.io/badge/Mức_Yếu-GPA_%E2%89%A5_1.0_%20%7C%20ĐRL_%E2%89%A5_50-EF5350?style=for-the-badge&labelColor=333333)](#)
+> [![Không xét](https://img.shields.io/badge/Mức_Không_Xét-GPA_<_1.0_%20%7C%20ĐRL_<_50-EF9A9A?style=for-the-badge&labelColor=333333)](#)
 
 **Xếp loại cuối** là mức thấp hơn giữa hai tiêu chí:
 
@@ -185,12 +183,34 @@ $$
 
 ```mermaid
 flowchart LR
-    A[Đọc từng dòng Excel] --> B[Xếp loại theo GPA]
-    A --> C[Xếp loại theo ĐRL]
-    B --> D["min(GPA, ĐRL)"]
+    %% Định nghĩa dải màu sắc chuyên nghiệp (Paper-Ready Academic Style)
+    classDef dataNode fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1,font-weight:bold;
+    classDef processNode fill:#E8F5E9,stroke:#2E7D32,stroke-width:1.5px,color:#1B5E20,font-weight:bold;
+    classDef evalNode fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px,color:#E65100,font-weight:bold;
+    classDef sortNode fill:#F3E5F5,stroke:#7B1FA2,stroke-width:1.5px,color:#4A148C,font-weight:bold;
+    classDef outputNode fill:#E0F2F1,stroke:#00695C,stroke-width:2px,color:#004D40,font-weight:bold;
+
+    %% Các nút trong sơ đồ
+    A["Đọc từng dòng<br/>dữ liệu Excel"]:::dataNode
+    
+    B["Xếp loại theo GPA<br/>(Điểm học tập)"]:::processNode
+    C["Xếp loại theo ĐRL<br/>(Điểm rèn luyện)"]:::processNode
+    
+    D["Đánh giá chung:<br/>min(GPA, ĐRL)"]:::evalNode
+    
+    E["Sắp xếp giảm dần theo:<br/>1. Xếp loại cuối cùng<br/>2. GPA học kỳ<br/>3. Điểm rèn luyện<br/>4. Số tín chỉ đăng ký"]:::sortNode
+    
+    F["Xuất Bảng xếp hạng<br/>Học kỳ hoàn chỉnh"]:::outputNode
+
+    %% Luồng liên kết
+    A --> B
+    A --> C
+    
+    B --> D
     C --> D
-    D --> E["Sắp xếp giảm dần theo:<br/>1. Xếp loại<br/>2. GPA<br/>3. Điểm rèn luyện<br/>4. Số tín chỉ đăng ký"]
-    E --> F[Bảng xếp hạng]
+    
+    D --> E
+    E --> F
 ```
 
 ---
